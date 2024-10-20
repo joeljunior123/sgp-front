@@ -1,0 +1,43 @@
+<div class="example-container">
+  <form [formGroup]="productForm">
+    <mat-form-field floatLabel="always">
+      <mat-label>Nome</mat-label>
+      <input matInput type="text" formControlName="name" class="example-right-align" />
+      @if (productForm.controls['name'].hasError('required')) {
+        <mat-error>Nome é <strong>obrigatório</strong></mat-error>
+      }
+    </mat-form-field>
+
+    <mat-form-field floatLabel="always">
+      <mat-label>Descrição</mat-label>
+      <input matInput type="text" formControlName="desc" class="example-right-align" />
+      @if (productForm.controls['desc'].hasError('required')) {
+        <mat-error>Descrição é <strong>obrigatório</strong></mat-error>
+      }
+    </mat-form-field>
+
+    <mat-form-field floatLabel="always">
+      <mat-label>Preço</mat-label>
+      <input matInput type="number" formControlName="price" class="example-right-align" placeholder="0" />
+      @if (productForm.controls['desc'].hasError('required')) {
+        <mat-error>Preço é <strong>obrigatório</strong></mat-error>
+      }
+    </mat-form-field>
+
+    <mat-form-field floatLabel="always">
+      <mat-label>Imagem</mat-label>
+      <input matInput type="text" formControlName="image" class="example-right-align" />
+      @if (productForm.controls['desc'].hasError('required')) {
+        <mat-error>Imagem é <strong>obrigatório</strong></mat-error>
+      }
+    </mat-form-field>
+
+    <button mat-flat-button *ngIf="!id; else createTemplate" [disabled]="productForm.invalid" (click)="createProduct(productForm.value)">Novo</button>
+  </form>
+</div>
+
+
+<ng-template #createTemplate>
+  <!-- ng-template para o modo de criação -->
+  <button mat-flat-button [disabled]="productForm.invalid" (click)="updateProduct(productForm.value)">Atualizar</button>
+</ng-template>

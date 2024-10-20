@@ -1,0 +1,60 @@
+<mat-form-field>
+    <mat-label>Buscar produto</mat-label>
+    <input matInput (keyup)="searchProduct($event)" placeholder="Produto 1" #input>
+</mat-form-field>
+
+<button mat-flat-button (click)="goToCreateProduct()">Novo</button>
+
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+    <!--- Note that these columns can be defined in any order.
+            The actual rendered columns are set as a property on the row definition" -->
+
+    <!-- Image Column -->
+    <ng-container matColumnDef="image">
+        <th mat-header-cell *matHeaderCellDef> Imagem </th>
+        <td mat-cell *matCellDef="let element">
+            <img [src]="element.image" alt="{{element.name}}" width="50" height="50" />
+        </td>
+    </ng-container>
+
+    <!-- id Column -->
+    <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef> ID </th>
+        <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef> Nome </th>
+        <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+    </ng-container>
+
+    <!-- desc Column -->
+    <ng-container matColumnDef="desc">
+        <th mat-header-cell *matHeaderCellDef> Descrição </th>
+        <td mat-cell *matCellDef="let element"> {{element.desc}} </td>
+    </ng-container>
+
+    <!-- price Column -->
+    <ng-container matColumnDef="price">
+        <th mat-header-cell *matHeaderCellDef> Preço </th>
+        <td mat-cell *matCellDef="let element"> {{element.price}} </td>
+    </ng-container>
+
+    <!-- acao Column -->
+    <ng-container matColumnDef="acao">
+        <th mat-header-cell *matHeaderCellDef> Edit/Delete </th>
+        <td mat-cell *matCellDef="let element">
+            <button mat-icon-button (click)="goToEditProduct(element.id)">
+                <mat-icon>edit</mat-icon>
+            </button>
+            <button mat-icon-button (click)="openDialog(element)" style="color: red;">
+                <mat-icon>delete</mat-icon>
+            </button>
+        </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>

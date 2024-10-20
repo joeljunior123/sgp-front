@@ -1,0 +1,8 @@
+<h2 mat-dialog-title>Apagar Produto</h2>
+<mat-dialog-content>
+  Gostaria de deletar o produto {{ productName }}?
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button mat-dialog-close>Cancelar</button>
+  <button mat-button [mat-dialog-close]="true" cdkFocusInitial>Apagar</button>
+</mat-dialog-actions>
