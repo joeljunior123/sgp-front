@@ -1,15 +1,41 @@
-# SgpFront
+# Sistema de Gerenciamento de Produtos FrontEnd
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.9.
+Esse projeto foi gerado em [Angular CLI](https://github.com/angular/angular-cli) versão 18.2.9.
 
-## Primeiro passo
+## Descrição
 
-Roda `npm install` para baixar todas dependencias do projeto.
+Este projeto é uma aplicação full-stack desenvolvida com Spring Boot no back-end e Angular no front-end. A aplicação simula a gestão de produtos, permitindo adicionar, editar, visualizar e deletar produtos.
 
-## Development server
+## Funcionalidades
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+- Listar produtos
+- Adicionar novo produto
+- Editar produto
+- Deletar produto
 
-## Further help
+## Tecnologias Utilizadas
+### Front-end (Angular)
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+- Angular CLI 18.2.9
+- Node v20.17
+- Angular Material - Para estilização dos componentes
+
+## Configuração do Projeto
+
+### Clonando o Repositório do Projeto Front
+
+```git clone https://github.com/joeljunior123/sgp-front.git```
+
+```cd sgp-front```
+
+### Download dependencias FrontEnd
+
+Rodar ```npm install``` para baixar todas dependencias do projeto do FrontEnd.
+
+## Servidor de Desenvolvimento FrontEnd
+
+Execute ```ng serve``` para iniciar um servidor de desenvolvimento. Acesse `http://localhost:4200/`. A aplicação será recarregada automaticamente se você modificar qualquer um dos arquivos-fonte.
+
+## Considerações Finais
+
+Este projeto foi desenvolvido como parte de um desafio técnico e tem como foco a implementação de funcionalidades básicas de uma aplicação de cadastro de produtos. A comunicação entre o front-end e o back-end é feita via API REST.
