@@ -15,6 +15,7 @@ import { HomeService } from './service/home.service';
   styleUrl: './home.component.scss'
 })
 export class HomeComponent implements OnInit {
+
   displayedColumns: string[] = ['id', 'name', 'price', 'desc', 'image', 'acao'];
   dataSource: Product[] = [];
   produtos: Product[] = [];
@@ -49,7 +50,7 @@ export class HomeComponent implements OnInit {
   openDialog(product: Product): void {
     const dialogDelete = this.dialog.open(DialogDeleteComponent, {
       width: '250px',
-      data: { productName: product.name } // Passa o nome do produto
+      data: { productName: product.name }
     });
   
     dialogDelete.afterClosed().subscribe(confirm => {
