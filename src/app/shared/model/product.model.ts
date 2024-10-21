@@ -5,3 +5,9 @@ export interface Product {
     desc: string;
     image: string;
 }
+export interface Page<T> {
+    content: T[];
+    totalElements: number;
+    page: number;
+    size: number;
+}

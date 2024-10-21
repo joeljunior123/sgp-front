@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Product } from '../../../shared/model/product.model';
+import { Page, Product } from '../../../shared/model/product.model';
 
 @Injectable({
   providedIn: 'root'
@@ -12,16 +12,16 @@ export class HomeService {
 
   constructor(private http: HttpClient) { }
 
-  getAllProducts(): Observable<Product[]> {
-    return this.http.get<Product[]>(`${this.url}`);
+  getPaginatedProducts(page: number, size: number): Observable<any> {
+    return this.http.get<any>(`${this.url}?page=${page}&itens=${size}`);
   }
 
   getProductById(productId: Number) {
     return this.http.get<Product>(`${this.url}/${productId}`);
   }
 
-  getProductByName(name: string) {
-    return this.http.get<Product[]>(`${this.url}/search?name=${name}`);
+  getProductByName(name: string, page: number, size: number): Observable<Page<Product>> {
+    return this.http.get<Page<Product>>(`${this.url}/search?name=${name}&page=${page}&size=${size}`);
   }
 
   createProduct(product: Product): Observable<Product> {
